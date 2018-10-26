@@ -11,16 +11,17 @@ const bodyParser = require('body-parser');
 // ici le middleware bodyParser transforme la requete en ajoutant le body en json dans reqla propriété body
 app.use(bodyParser.json())
 
+let users = [
+    {id: 1, name: "Nicolas", email: "xxx@xxx.com"},
+    {id: 2, name: "Sophie", email: "xxx@xxx.com"},
+    {id: 3, name: "Roger", email: "xxx@xxx.com"}
+]
+
 // route GET sur le chemin /users
 // renvoie une liste d'users
 // req : object décrivant la requête
 // res : object pour renvoyer la réponse
 app.route('/users').get((req, res) => {
-    let users = [
-        {id: 1, name: "Nicolas", email: "xxx@xxx.com"},
-        {id: 2, name: "Sophie", email: "xxx@xxx.com"},
-        {id: 3, name: "Roger", email: "xxx@xxx.com"}
-    ]
     // res.json permet de renvoyer un object ou un tableau json en réponse
     res.json(users);
 })
